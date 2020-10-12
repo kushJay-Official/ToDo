@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-ToDoAppApplication<ToDoApp>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.to_doapp.ToDoApp.ToDoAppApplication",
+            "projectName": "ToDoApp",
+            "args": ""
+        }
+    ]
+}

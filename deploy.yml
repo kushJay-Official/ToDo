@@ -1,0 +1,30 @@
+name: Deploy to GitHub Pages
+on:
+  push:
+    branches:
+      - master
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [13.2.0]
+    steps:
+      - uses: actions/checkout@master
+      - name: install, build, and test
+        run: |
+          yarn install
+          yarn lint
+          yarn build
+          yarn test
+        env:
+          CI: true
+      - name: Deploy to production
+        uses: awb-pw/deploy-to-github-pages-action@1.1.1
+        env:
+          AUTHOR: kushJay-Official
+          BUILD_PATH: public
+          GITHUB_PAGE_NAME: todoapp.github.io
+          PA_TOKEN: ${{ secrets.1c3623bf086ca75e6abb2e8bff3d962bea4db683}}
+          USERNAME: kushJay-Official
+          EMAIL: kush.jay.official@gmail.com
